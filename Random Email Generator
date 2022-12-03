@@ -1,0 +1,36 @@
+import random
+
+# Create a list of first names
+first_names = ["John", "Jane", "James", "Jessica", "Michael", "Michelle", "David", "Emily", "Scott", "Samantha"]
+
+# Create a list of last names
+last_names = ["Smith", "Johnson", "Brown", "Wilson", "Miller", "Taylor", "Davis", "Anderson", "Moore", "Jackson"]
+
+# Create a list of email domains
+email_domains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "comcast.net", "verizon.net"]
+
+# Create an empty list to store the generated names and emails
+name_and_email_list = []
+
+# Generate 50 random names and emails
+for i in range(50):
+    # Generate a random first and last name
+    first_name = random.choice(first_names)
+    last_name = random.choice(last_names)
+
+    # Generate a random email domain
+    email_domain = random.choice(email_domains)
+
+    # Create the email using the first name, last name, and email domain
+    email = first_name + "." + last_name + "@" + email_domain
+
+    # Add the name and email to the list
+    name_and_email_list.append(first_name + " " + last_name + ": " + email)
+
+# Prompt the user for input
+user_input = input("Enter 'list' to generate a list of names and emails: ")
+
+# If the user enters "list", print the generated names and emails
+if user_input == "list":
+    for name_and_email in name_and_email_list:
+        print(name_and_email)
