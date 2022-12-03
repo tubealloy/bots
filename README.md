@@ -1,2 +1,2 @@
 # bots
-A bunch of Python bots that I make in my spare time.
+A bunch of random scripts made from previous school assignments and in my spare time.
