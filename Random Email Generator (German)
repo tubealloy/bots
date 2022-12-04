@@ -1,0 +1,26 @@
+import random
+
+# create list of German first names
+first_names = ["Anna", "Benedikt", "Carla", "Dieter", "Erika", "Florian", "Greta", "Hans", "Ingrid", "Johannes"]
+
+# create list of German last names
+last_names = ["Amsel", "Bach", "Chlodwig", "Decken", "Eisenhut", "Faust", "Gnad", "Hagen", "Igel", "Jager"]
+
+# create list of emails
+emails = ["anna@email.com", "benedikt@email.com", "carla@email.com", "dieter@email.com", "erika@email.com",
+          "florian@email.com", "greta@email.com", "hans@email.com", "ingrid@email.com", "johannes@email.com"]
+
+# create empty list to store generated names and emails
+names_emails = []
+
+# generate 100 random names and emails
+for i in range(100):
+    first_name = random.choice(first_names)
+    last_name = random.choice(last_names)
+    email = random.choice(emails)
+
+    # add name and email to list
+    names_emails.append(first_name + " " + last_name + " " + email)
+
+# print list of names and emails
+print(names_emails)
