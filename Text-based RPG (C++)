@@ -1,0 +1,77 @@
+Copy code
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int MAX_HEALTH = 100;
+const int MAX_GOLD = 100;
+const int SCENARIOS = 50;
+
+int main() {
+    int health = MAX_HEALTH;
+    int gold = MAX_GOLD;
+
+    // Seed the random number generator
+    srand(time(NULL));
+
+    for (int i = 0; i < SCENARIOS; i++) {
+        cout << "Scenario #" << i << ": ";
+
+        // Generate a random number between 1 and 10
+        int scenario = rand() % 10 + 1;
+
+        if (scenario <= 4) {
+            // Scenario is a battle
+            cout << "You've been ambushed by bandits! Fight or run?" << endl;
+
+            // Subtract health and gold based on player's decision
+            string decision;
+            cin >> decision;
+            if (decision == "Fight") {
+                cout << "You've successfully fought off the bandits and gained 10 gold!" << endl;
+                gold += 10;
+            } else {
+                cout << "You've fled the scene, but lost 5 health and 3 gold in the process." << endl;
+                health -= 5;
+                gold -= 3;
+            }
+        } else if (scenario <= 7) {
+            // Scenario is an opportunity to earn gold
+            cout << "You've stumbled upon a hidden treasure chest! Open it and claim your reward?" << endl;
+
+            // Add gold based on player's decision
+            string decision;
+            cin >> decision;
+            if (decision == "Yes") {
+                cout << "You've found 20 gold inside the chest!" << endl;
+                gold += 20;
+            } else {
+                cout << "You've decided to leave the chest be." << endl;
+            }
+        } else {
+            // Scenario is a chance to heal
+            cout << "You've come across a healer who can restore your health for 10 gold. Do you want to heal?" << endl;
+
+            // Add health and subtract gold based on player's decision
+            string decision;
+            cin >> decision;
+            if (decision == "Yes") {
+                cout << "You've been healed for 20 health!" << endl;
+                health += 20;
+            } else {
+                cout << "You've decided to not heal at this time." << endl;
+            }
+        }
+
+        // Ensure that health and gold remain within their respective limits
+        health = min(MAX_HEALTH, health);
+        gold = min(MAX_GOLD, gold);
+
+        cout << "Current health: " << health << endl;
+        cout << "Current gold: " << gold << endl;
+    }
+
+    return 0;
+}
